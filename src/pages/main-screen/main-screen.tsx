@@ -1,6 +1,10 @@
 import Card from '../../components/card/card';
 
-function MainScreen(): JSX.Element {
+type MainScreenProps = {
+  offersCount: number;
+}
+
+function MainScreen({ offersCount }: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -111,11 +115,7 @@ function MainScreen(): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {Array.from({ length: offersCount }).map(() => (<Card />))}
               </div>
             </section>
             <div className="cities__right-section">
